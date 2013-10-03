@@ -1,9 +1,12 @@
 nv.addGraph(function() {  
-   var chart = nv.models.lineChart().showLegend(false);
+   // Added forceY
+   var chart = nv.models.lineChart().showLegend(false).forceY([0, 20]);
  
    chart.xAxis
        .axisLabel('Fiscal Year')
-       .tickFormat(d3.format('r'));
+       .tickFormat(d3.format('r'))
+        // Added tickValues
+       .tickValues([2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]);
  
    chart.yAxis
        .axisLabel('Market Value ($M)')
@@ -13,7 +16,13 @@ nv.addGraph(function() {
      .transition().duration(500)
        .call(chart);
  
-   nv.utils.windowResize(function() { d3.select('#endowment svg').call(chart) });
+   // added this janky line
+   d3.select('#endowment .nv-y .nv-axis .nv-axislabel').attr('y', '-50');
+   nv.utils.windowResize(function() { 
+       d3.select('#endowment svg').call(chart);
+       // added this janky line
+       d3.select('#endowment .nv-y .nv-axis .nv-axislabel').attr('y', '-50');
+   });
 
    return chart;
  });
