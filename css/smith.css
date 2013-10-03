@@ -1,6 +1,6 @@
 body
 {
-	background-image: url('../smith.jpg');
+	background-image: url('../img/smith.jpg');
 	background-color: black;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
@@ -23,6 +23,19 @@ a:hover {
 a:visited {
 	text-decoration: none;
 	color: white;
+}
+
+#logo {
+	position: fixed;
+	top: 25px;
+	left: 0px;
+	background-color: #ba0600;
+	z-index: 10;
+}
+
+#logo img {
+	padding: 5px 10px;
+	width: 200px;
 }
 
 #main {
@@ -115,6 +128,14 @@ a:visited {
 	font-size: 0.8em;
 	text-align: center;
 	margin: 0;
+	line-height: 1.5em;
+}
+
+.graph h4 {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.7em;
+	text-align: center;
+	margin: 0;
 }
 
 section#byline-footer {
@@ -122,14 +143,27 @@ section#byline-footer {
 	margin-top: 0;
 }
 
+#disqus_thread {
+	padding: 30px;
+}
+
 @media(max-width: 1000px) {
 	#main {
-		margin: 75px auto;
+		margin: 0 auto;
 		float: none;
 	}
 
 	#title {
 		margin-bottom: 0;
+	}
+}
+
+@media(max-width: 700px) {
+	#title-wrapper {
+		height: auto;
+	}
+	#title {
+		padding-top: 100px;
 	}
 }
 
